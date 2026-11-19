@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f3ea"><title>Daylist | Task manager</title>
+  <link rel="stylesheet" href="style.css"><script src="app.js" defer></script>
+</head>
+<body>
+  <header><div class="brand"><span aria-hidden="true">✓</span> Daylist</div><time id="today"></time></header>
+  <main>
+    <h1>My tasks<span>.</span></h1>
+    <form id="entry">
+      <label>Task name<input id="name" placeholder="What needs to get done?" required maxlength="200"></label>
+      <label>Due date <small>(optional)</small><input type="date" id="due"></label>
+      <div class="actions"><button class="primary" id="save">Add task</button><button type="button" id="cancel" hidden>Cancel</button></div>
+    </form>
+    <section aria-label="Task list">
+      <div class="toolbar">
+        <div id="tabs" role="group" aria-label="Filter by completion">
+          <button data-view="all" aria-pressed="true">All</button>
+          <button data-view="active" aria-pressed="false">Active</button>
+          <button data-view="completed" aria-pressed="false">Completed</button>
+        </div>
+        <label class="filter">Due <select id="dates"><option value="all">Any date</option><option value="today">Today</option><option value="overdue">Overdue</option><option value="upcoming">Upcoming</option><option value="none">No due date</option></select></label>
+      </div>
+      <ul id="list"></ul><div id="empty"></div>
+    </section>
+    <p id="message" role="status"></p><p id="warning" role="alert"></p>
+  </main>
+</body></html>
